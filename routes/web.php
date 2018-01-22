@@ -11,11 +11,10 @@
 |
 */
 
-use Illuminate\Http\Request; 
+//use Illuminate\Http\Request;
 
 
 Route::get('/', 'ArticleController@index')->name('home');
-
 
 Route::get('/auth/register', 'RegistrationController@register')->name('auth.register');
 
@@ -36,6 +35,3 @@ Route::get('myindex', 'ArticleController@myindex')->name('myindex');
 Route::get('pdf/{article_id}', 'ArticleController@pdf');
 
 Route::get('feed/{type?}', ['as' => 'feed.atom', 'uses' => 'FeedController@getFeed']);
-
-
-

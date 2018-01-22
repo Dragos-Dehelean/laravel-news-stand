@@ -10,7 +10,6 @@ use Auth;
 use PDF;
 
 
-
 class ArticleController extends Controller
 {
     /**
