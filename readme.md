@@ -1,5 +1,5 @@
 
-## Learning Laravel
+## Exploring Laravel 5.4
 
 Scope: explore as much of the Laravel 5.4 framework capabilities in developing a web app
 
