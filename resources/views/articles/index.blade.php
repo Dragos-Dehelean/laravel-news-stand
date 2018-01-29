@@ -3,6 +3,6 @@
 
 <h2 class="blog-post-title">Latest News</h2>
 
-@include('articles.partials._index')
+@include('articles.partials._list')
 
 @stop

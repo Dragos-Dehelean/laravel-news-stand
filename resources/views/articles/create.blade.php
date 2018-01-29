@@ -10,11 +10,9 @@
   }); 
 </script>
 
-
-{!! Form::close() !!}
-
-
 <h2 class="blog-post-title">Create a new article</h2>
+
+@include('errors.list')
 
 {{-- Check if current user is logged-in or a guest --}}
 @if (Auth::guest())
@@ -25,30 +23,9 @@
 		
 @else
 
-	{{ Form::open(['route' => 'articles.store', 'files' => true]) }}		
-		
-		{{ csrf_field() }}
+	{{ Form::open(['route' => 'articles.store', 'files' => true]) }}
 
-		<input type="hidden" name="author_id" value="{{ Auth::id() }}" />
-
-		<div class="form-group">
-			{{ Form::label( 'title', 'News Item Title' ) }}
-			{{ Form::text( 'title', null, ['class' => 'form-control'] ) }}
-		</div>
-
-		<div class="form-group">
-			{{ Form::label( 'thumbnail', 'News Item Thumbnail' ) }}
-			{{ Form::file( 'thumbnail', ['class' => 'form-control'] ) }}
-		</div>
-
-		<div class="form-group">
-			{{ Form::label( 'text', 'News Item Text' ) }}
-			{{ Form::textarea( 'text', null, ['class' => 'form-control'] ) }}
-		</div>
-		
-		<div class="form-group">
-			{{ Form::submit( 'Submit', ['class' => 'btn btn-success btn-block'] ) }}
-		</div>
+		@include('articles.partials._form')
 
 	{{ Form::close() }}
 

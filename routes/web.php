@@ -16,9 +16,9 @@
 
 Route::get('/', 'ArticleController@index')->name('home');
 
-Route::get('/auth/register', 'RegistrationController@register')->name('auth.register');
+Route::get('auth/register', 'RegistrationController@register')->name('auth.register');
 
-Route::post('/auth/register', 'RegistrationController@postRegister')->name('auth.store');
+Route::post('auth/register', 'RegistrationController@postRegister')->name('auth.store');
 
 Route::get('register/confirm/{email_token}', 'RegistrationController@confirmEmail');
 
@@ -28,7 +28,7 @@ Route::post('login', 'SessionController@postLogin')->name('login');
 
 Route::get('logout', 'SessionController@logout')->name('logout');
 
-Route::resource('articles', 'ArticleController', ['except' => ['update', 'edit']]);
+Route::resource('articles', 'ArticleController');
 
 Route::get('myindex', 'ArticleController@myindex')->name('myindex');
 

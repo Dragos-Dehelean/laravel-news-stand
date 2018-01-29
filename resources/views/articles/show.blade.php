@@ -36,16 +36,14 @@
 		@else
 	        <span>
 	        	<i class="glyphicon glyphicon-user"></i> by {{ $article->author->name }}
-	        </span>      
-
-
+	        </span>
 		@endif    
 			          
 	</ul>		
 
 	<article>
 
-		{!! $article->text !!}
+		{!! $article->body !!}
 		
 	</article>    
 

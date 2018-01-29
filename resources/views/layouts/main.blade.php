@@ -81,10 +81,6 @@
         <div class="col-md-9 blog-main">
         
             @include('layouts.flash')
-            @include('layouts.errors')   
-
-
-
             @yield('content')
         
         </div> 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 use Image;
 use File;
 use Auth;
@@ -23,6 +24,7 @@ class ArticleController extends Controller
                             ->take(10)
                             ->get();
        return view('articles.index')->with( 'articles', $articles );
+        //return Article::first();
     }
 
     /**
@@ -64,14 +66,8 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        
-         // Validate and filter user inputted data    
-        $this->validate($request, [
-            'title'        => 'required|unique:articles,title',
-            'text'         => 'required'
-        ]);
 
         // Create a new Article Model initialization
         $article = new Article;
@@ -113,6 +109,35 @@ class ArticleController extends Controller
     {
          
          return view('articles.show')->with('article', $article);
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+
+        return view('articles.edit', compact('article'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ArticleRequest $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+
+        return redirect()->route('myindex');
 
     }
 
