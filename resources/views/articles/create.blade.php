@@ -22,15 +22,10 @@
 	</p>
 		
 @else
-
 	{{ Form::open(['route' => 'articles.store', 'files' => true]) }}
-
-		@include('articles.partials._form')
-
+		@include('articles.partials._form', [ 'submitButtonText' => 'Create Article'])
 	{{ Form::close() }}
-
 @endif
-	
 
 @stop
 

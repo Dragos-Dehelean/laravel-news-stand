@@ -23,9 +23,9 @@
 
     @else
 
-        {{ Form::model($article, ['route' => ['articles.update', $article->id], 'files' => true, 'method' => 'put']) }}
+        {{ Form::model($article, ['route' => ['articles.update', $article->id], 'files' => true, 'method' => 'patch']) }}
 
-        @include('articles.partials._form')
+        @include('articles.partials._form', [ 'submitButtonText' => 'Update Article'])
 
         {{ Form::close() }}
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
 
-    protected $fillable= [ 'title', 'text' ];
+    protected $fillable= [ 'title', 'body' ];
 
 
     // returns the instance of the user who is author of that article

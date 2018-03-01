@@ -17,9 +17,9 @@
 
 <div class="form-group">
     {{ Form::label( 'body', 'News Item Text' ) }}
-    {{ Form::textarea( 'body', null, ['class' => 'form-control'] ) }}
+    {{ Form::textarea( 'body', $article->body, ['class' => 'form-control'] ) }}
 </div>
 
 <div class="form-group">
-    {{ Form::submit( 'Submit', ['class' => 'btn btn-success btn-block'] ) }}
+    {{ Form::submit( $submitButtonText, ['class' => 'btn btn-success btn-block'] ) }}
 </div>

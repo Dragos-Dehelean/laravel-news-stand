@@ -74,7 +74,7 @@ class ArticleController extends Controller
 
         $article->author_id = $request->author_id;
         $article->title     = $request->title;
-        $article->text      = $request->text;
+        $article->body      = $request->body;
 
         // Checks if file is present
         if( $request->hasFile('thumbnail') ) {
@@ -109,7 +109,6 @@ class ArticleController extends Controller
     {
          
          return view('articles.show')->with('article', $article);
-
     }
 
     /**

@@ -23,9 +23,21 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'        => 'required',
-            'body'         => 'required'
-        ];
+        switch ($this->method()){
+            case 'POST':{
+                return [
+                    'title'        => 'required|unique:articles',
+                    'body'         => 'required'
+                ];
+            }
+            case 'PATCH':{
+                return [
+                    'title'        => 'required',
+                    'body'         => 'required'
+                ];
+            }
+            default: break;
+        }
+
     }
 }
